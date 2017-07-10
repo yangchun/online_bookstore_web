@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+	<!-- consumer application name -->
+	<dubbo:application name="online_bookstore" />
+	<!-- registry address, used for consumer to discover services  -->
+	<dubbo:registry address="zookeeper://112.74.18.231:2181" />
+	
+	<dubbo:consumer timeout="10000" />
+	<!-- which service to consume? -->
+	<dubbo:reference id="addressService" interface="com.online_bookstore.service.AddressService"/>
+	<dubbo:reference id="authorService" interface="com.online_bookstore.service.AuthorService"/>
+	<dubbo:reference id="bookImgsService" interface="com.online_bookstore.service.BookImgsService"/>
+	<dubbo:reference id="bookService" interface="com.online_bookstore.service.BookService"/>
+	<dubbo:reference id="orderOfItemService" interface="com.online_bookstore.service.OrderOfItemService"/>
+	<dubbo:reference id="orderService" interface="com.online_bookstore.service.OrderService"/>
+	<dubbo:reference id="reviewService" interface="com.online_bookstore.service.ReviewService"/>
+	<dubbo:reference id="shoppingCartService" interface="com.online_bookstore.service.ShoppingCartService"/>
+	<dubbo:reference id="userService" interface="com.online_bookstore.service.UserService"/>	
+	<dubbo:reference id="videoService" interface="com.online_bookstore.service.VideoService"/>
+	
+</beans>
+
